@@ -42,6 +42,7 @@ class Layout_View
                 <?php echo self::getCommonStyle(); ?>
             </head>
             <body>
+                <div class="page text-center">
                 
                 <?php echo self::getPage(); ?>
                
@@ -61,6 +62,7 @@ class Layout_View
                 </main>
                 <?php echo self::getFooter(); ?>
                 <?php echo self::getCommonScripts(); ?>
+                </div>
                 
             </body>
         </html>
