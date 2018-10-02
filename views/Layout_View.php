@@ -63,6 +63,7 @@ class Layout_View
                 
                 <?php echo self::getFooter(); ?>
                 <?php echo self::getCommonScripts(); ?>
+                <?php echo self::getIndexwelcom(): ?>
             </body>
         </html>
         <?php
@@ -208,6 +209,51 @@ class Layout_View
                 </div>
             </nav>
         </div>
+        <?php
+        $htmlContent = ob_get_contents();
+        ob_end_clean();
+        return $htmlContent;
+    }
+    
+    public function getIndexwelcom()
+    {
+        ob_start();
+        ?>
+        <!-- Welcome to Intense-->
+            <main class="page-content">
+            <section class="section-98 section-md-110">
+                <div class="container">
+                    <div class="row justify-content-sm-center align-items-sm-center">
+                        <!-- Simple quote Slider-->
+                        <div class="col-md-9 col-xl-6 order-xl-6">
+                            <div class="owl-carousel owl-carousel-classic owl-carousel-class-light shadow-drop-md" data-items="1" data-nav="false" data-dots="false" data-nav-custom=".owl-custom-navigation">
+                                <div>
+                                    <!-- Media Elements-->
+                                    <div class="embed-responsive embed-custom-16by9">
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/o6-Iui7NQj8?wmode=transparent"></iframe>
+                                    </div>
+                                </div>
+                                <div><img class="img-fluid element-fullwidth" src="images/home-05-525x350.jpg" width="525" height="350" alt=""></div>
+                                <div><img class="img-fluid element-fullwidth" src="images/home-04-525x350.jpg" width="525" height="350" alt=""></div>
+                            </div>
+                        </div>
+                        <div class="col-md-9 col-xl-6 col-xl-pull-6 text-xl-left offset-top-66 offset-xl-top-0 inset-xl-right-30">
+                            <h1>Welcome to Intense</h1>
+                            <hr class="divider bg-mantis hr-xl-left-0">
+                            <p class="offset-top-50 text-md-left">Dr. Mark Hoffman's dental clinic welcomes you! We're glad you decided to become our customer for resolving your dental health concerns.</p>
+                            <p class="text-md-left">Our main long-term goal is always achieving complex results for your dental health. But in the process, we also keep the focus on giving you the best customer service. We're always making our dental office as safe place as possible!</p>
+                            <div class="owl-custom-navigation owl-customer-navigation offset-top-24">
+                                <div class="owl-nav">
+                                    <div class="owl-prev mdi mdi-chevron-left" data-owl-prev></div>
+                                    <div class="owl-next mdi mdi-chevron-right" data-owl-next></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            </main>
+        
         <?php
         $htmlContent = ob_get_contents();
         ob_end_clean();
