@@ -43,25 +43,42 @@ class Layout_View
             </head>
             <body>
                 <div class="page text-center">
-                
-                <?php echo self::getPage(); ?>
-               
-                
-                <!-- Page Head-->
-                <header class="page-head">
-                    <?php echo self::getMainMenu(); ?>
-                    <?php echo self::getIndexSliders(); ?>
-                </header>
-                <main class="page-content">
-                    <?php echo self::getWelcome(); ?>
-                    <?php echo self::getIndexColumn(); ?>
-                    <?php echo self::getIndexServices(); ?>
-                    <?php echo self::getTestimonials(); ?>
-                    <?php echo self::getParallax(); ?>
-                    <?php echo self::getBlog(); ?>
-                </main>
-                <?php echo self::getFooter(); ?>
-                <?php echo self::getCommonScripts(); ?>
+                    <?php echo self::getPage(); ?>
+                    <!-- Page Head-->
+                    <header class="page-head">
+                        <?php echo self::getMainMenu(); ?>
+                        <?php
+                        if ($this->section == "index")
+                        {
+                            echo self::getIndexSliders();
+                        }
+                        ?>
+                    </header>
+                    <main class="page-content">
+                        <?php
+                        switch ($this->section)
+                        {
+                            case "index":
+                                echo self::getWelcome();
+                                echo self::getIndexColumn();
+                                echo self::getIndexServices(); 
+                                echo self::getTestimonials();
+                                echo self::getParallax();
+                                echo self::getBlog();
+                            break;
+                                
+                            case "about-us":
+                                echo self::getAboutCrumbs();
+                                echo self::getAboutWhoWeAre();
+                            break;
+                                
+                            default:
+                            break;
+                        }
+                        ?>
+                    </main>
+                    <?php echo self::getFooter(); ?>
+                    <?php echo self::getCommonScripts(); ?>
                 </div>
                 
             </body>
@@ -73,21 +90,14 @@ class Layout_View
     {
         ob_start();
         ?>
-    <body>
-        <div class="ie-panel">
-                    <a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a>
+        <div class="page-loader page-loader-variant-1">
+            <div>
+                <img width='329' height='67' src='/images/logo-big.png' alt='' />
+                <div class="offset-top-41 text-center">
+                    <div class="spinner"></div>
                 </div>
-                <div class="page text-center">
-                    <div class="page-loader page-loader-variant-1">
-                        <div>
-                            <img width='329' height='67' src='/images/logo-big.png' alt='' />
-                            <div class="offset-top-41 text-center">
-                                <div class="spinner"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        </body>
+            </div>
+        </div>
         <?php
         $htmlContent = ob_get_contents();
         ob_end_clean();
@@ -101,23 +111,6 @@ class Layout_View
         ?>
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700?CUbuntu:400,700">
         <link rel="stylesheet" href="/css/style.css">
-        <style>
-            .ie-panel {
-                display: none;
-                background: #212121;
-                padding: 10px 0;
-                box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, .3);
-                clear: both;
-                text-align: center;
-                position: relative;
-                z-index: 1;
-            }
-
-            html.ie-10 .ie-panel,
-            html.lt-ie-10 .ie-panel {
-                display: block;
-            }
-        </style>
         <?php
         $htmlContent = ob_get_contents();
         ob_end_clean();
@@ -194,9 +187,9 @@ class Layout_View
                                     </div>
                                     <!-- RD Navbar Nav-->
                                     <ul class="rd-navbar-nav">
-                                        <li class="active"><a href="index.html"><span>Home</span></a>
+                                        <li class="active"><a href="/"><span>Home</span></a>
                                         </li>
-                                        <li><a href="about-us.html"><span>About</span></a>
+                                        <li><a href="/about-us/"><span>About</span></a>
                                         </li>
                                         <li><a href="services.html"><span>Services</span></a>
                                             <ul class="rd-navbar-dropdown">
@@ -246,7 +239,6 @@ class Layout_View
     {
         ob_start();
         ?>
-            
             <!-- Welcome to Intense-->
             <section class="section-98 section-md-110">
                 <div class="container">
@@ -290,7 +282,6 @@ class Layout_View
     {
         ob_start();
         ?>
-
         <section class="section-98 section-md-top-110 section-md-bottom-124">
                 <div class="container container-wide">
                     <h1>Our Services</h1>
@@ -378,7 +369,6 @@ class Layout_View
     {
         ob_start();
         ?>
-
         <section class="section-98 section-md-110 bg-polar">
                 <div class="container">
                     <h1>Why choose Intense?</h1>
@@ -417,7 +407,6 @@ class Layout_View
                     </div>
                 </div>
             </section>
-        
         <?php
         $htmlContent = ob_get_contents();
         ob_end_clean();
@@ -426,7 +415,7 @@ class Layout_View
     }
     
     public function getTestimonials()
-        {
+    {
         ob_start();
         ?>
          <section class="section-98 section-md-110">
@@ -501,7 +490,6 @@ class Layout_View
     {
         ob_start();
         ?>
-
         <section class="context-dark">
                 <div class="section parallax-container" data-parallax-img="images/background-02-1920x955.jpg">
                     <div class="parallax-content">
@@ -527,7 +515,6 @@ class Layout_View
     
     public function getBlog()
     {  
-        
         ob_start();
         ?>
         <section class="section-top-98 section-md-top-110">
@@ -659,143 +646,7 @@ class Layout_View
         ob_end_clean();
         return $htmlContent;
     }
-        
-    
-    
-        
-    
-    
-    
-    
-    public function getFooter()
-    {
-        ob_start();
-        ?>
-        <!-- Footer variant 3-->
-        <footer class="section-relative section-top-66 section-bottom-34 page-footer">
-            <div class="container">
-                <div class="row justify-content-md-center text-xl-left">
-                    <div class="col-md-12">
-                        <div class="row justify-content-sm-center">
-                            <div class="col-sm-10 col-md-3 text-left order-md-4 col-md-10 col-xl-3 offset-md-top-50 offset-xl-top-0 order-xl-2 offset-xl-top-10">
-                                <!-- Twitter Feed-->
-                                <!--
-                                <p class="text-uppercase text-spacing-60 font-weight-bold text-center text-xl-left">Twitter Feed</p>
-                                <div class="offset-top-20">
-                                    <div class="twitter" data-twitter-username="templatemonster" data-twitter-date-hours=" hours ago" data-twitter-date-minutes=" minutes ago">
-                                        <div class="twitter-sm" data-twitter-type="tweet">
-                                            <div class="twitter-date text-dark small"><span class="icon icon-xxs mdi mdi-twitter text-middle"></span> <span class="text-middle" data-date="text"></span>
-                                            </div>
-                                            <div class="twitter-text" data-tweet="text"></div>
-                                            <div class="twitter-name font-weight-bold big" data-screen_name="text"></div>
-                                        </div>
-                                        <div class="twitter-sm" data-twitter-type="tweet">
-                                            <div class="twitter-date text-dark small"><span class="icon icon-xxs mdi mdi-twitter text-middle"></span> <span class="text-middle" data-date="text"></span>
-                                            </div>
-                                            <div class="twitter-text" data-tweet="text"></div>
-                                            <div class="twitter-name font-weight-bold big" data-screen_name="text"></div>
-                                        </div>
-                                    </div>
-                                </div>-->
-                            </div>
-                            <div class="col-sm-10 col-md-3 offset-top-66 order-md-3 col-md-10 offset-xl-top-0 col-md-6 col-xl-2 order-xl-4 offset-xl-top-10">
-                                <h6 class="text-uppercase text-spacing-60 text-center text-xl-left">Flickr</h6>
-                                <!--
-                                <div class="offset-xl-top-30">
-                                    <div class="group-xs flickr widget-flickrfeed" data-lightgallery="group" data-flickr-tags="tm58888_landscapes">
-                                        <a class="flickr-item thumbnail-classic" data-lightgallery="item" href="index.html" data-image_c="href" data-size="800x800" data-type="flickr-item"><img width="82" height="82" data-title="alt" src="images/_blank.png" alt="" data-image_q="src"></a>
-                                        <a class="flickr-item thumbnail-classic" data-lightgallery="item" href="index.html" data-image_c="href" data-size="800x800" data-type="flickr-item"><img width="82" height="82" data-title="alt" src="images/_blank.png" alt="" data-image_q="src"></a>
-                                        <a class="flickr-item thumbnail-classic" data-lightgallery="item" href="index.html" data-image_c="href" data-size="800x800" data-type="flickr-item"><img width="82" height="82" data-title="alt" src="images/_blank.png" alt="" data-image_q="src"></a>
-                                        <a class="flickr-item thumbnail-classic" data-lightgallery="item" href="index.html" data-image_c="href" data-size="800x800" data-type="flickr-item"><img width="82" height="82" data-title="alt" src="images/_blank.png" alt="" data-image_q="src"></a>
-                                    </div>
-                                </div>-->
-                            </div>
-                            <div class="col-sm-10 col-md-3 offset-top-66 order-md-2 col-md-6 col-xl-4 offset-md-top-0 order-xl-3 offset-xl-top-10">
-                                <h6 class="text-uppercase text-spacing-60 text-center text-lg-left">What people say</h6>
-                                <div class="offset-xl-top-30">
-                                    <!-- Simple quote Slider-->
-                                    <div class="owl-carousel owl-carousel-classic owl-carousel-class-light owl-carousel-simple-quote" data-items="1" data-nav="false" data-dots="true" data-margin="5">
-                                        <div>
-                                            <blockquote class="quote quote-simple-2 text-left">
-                                                <p class="text-darker quote-body offset-bottom-0">
-                                                    <q>Thank you for your extraordinary dental service! You helped me to get rid of gum disease and mouth cavity inflammation I had suffered.</q>
-                                                </p>
-                                                <h6 class="quote-author text-uppercase text-dark">
-                                                    <cite class="font-default text-normal">- John Doe</cite>
-                                                </h6>
-                                            </blockquote>
-                                        </div>
-                                        <div>
-                                            <blockquote class="quote quote-simple-2 text-left">
-                                                <p class="text-darker quote-body offset-bottom-0">
-                                                    <q>I am glad I’ve purchased a template from TemplateMonster. Extraordinary customer service, always available.</q>
-                                                </p>
-                                                <h6 class="quote-author text-uppercase text-dark">
-                                                    <cite class="font-default text-normal">- July Mao</cite>
-                                                </h6>
-                                            </blockquote>
-                                        </div>
-                                    </div>
-                                    <div class="offset-top-20 text-sm-center text-lg-left">
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item">
-                                                <a class="icon fa fa-facebook icon-xxs icon-circle icon-darkest-filled" href="index.html#"></a>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <a class="icon fa fa-twitter icon-xxs icon-circle icon-darkest-filled" href="index.html#"></a>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <a class="icon fa fa-google-plus icon-xxs icon-circle icon-darkest-filled" href="index.html#"></a>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <a class="icon fa fa-linkedin icon-xxs icon-circle icon-darkest-filled" href="index.html#"></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-10 col-md-3 offset-top-66 order-md-1 offset-md-top-0 col-md-6 col-xl-3 order-xl-1">
-                                <!-- Footer brand-->
-                                <div class="footer-brand">
-                                    <a href="index.html"><img width='138' height='52' src='images/logo.png' alt='' /></a>
-                                </div>
-                                <address class="contact-info offset-top-20 p">
-                    <div>
-                      <dl>
-                        <dt class="font-weight-bold">Address:</dt>
-                        <dd class="text-dark d-xl-block">4578 Marmora St, <span class="d-xl-block">San Francisco</span> <span class="d-xl-block">D04 89GR.</span></dd>
-                      </dl>
-                    </div>
-                    <div>
-                      <dl class="offset-top-0">
-                        <dt class="font-weight-bold">Telephone:</dt>
-                        <dd><a class="text-dark" href="tel:#">1-800-1234-567</a></dd>
-                      </dl>
-                    </div>
-                    <div>
-                      <dl class="offset-top-0">
-                        <dt class="font-weight-bold">E-mail:</dt>
-                        <dd><a class="text-dark" href="mailto:#">mail@demolink.org</a></dd>
-                      </dl>
-                    </div>
-                  </address>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container offset-top-50">
-                <p>Intense Dental Clinic &copy; <span id="copyright-year"></span> . <a class="text-darker" href="index.html#">Privacy Policy</a>
-                    <!-- {%FOOTER_LINK}-->
-                </p>
-            </div>
-        </footer>
-        <?php
-        $htmlContent = ob_get_contents();
-        ob_end_clean();
-        return $htmlContent;
-    }
-    
+
     public function getIndexSliders()
     {
         ob_start();
@@ -888,6 +739,181 @@ class Layout_View
                 </div>
             </div>
         </div>
+        <?php
+        $htmlContent = ob_get_contents();
+        ob_end_clean();
+        return $htmlContent;
+    }
+    
+    public function getAboutCrumbs()
+    {
+        ob_start();
+        ?>
+         <!-- Breadcrumbs-->
+        <section class="context-dark">
+            <div class="section parallax-container" data-parallax-img="images/background-03-1920x640.jpg">
+                <div class="parallax-content">
+                    <div class="bg-overlay-info">
+                        <div class="container section-34 section-md-85 text-lg-left">
+                            <div class="d-none d-md-block d-lg-inline-block">
+                                <h1>About Us</h1>
+                            </div>
+                            <div class="pull-lg-right offset-md-top-10 offset-lg-top-20">
+                                <ul class="p list-inline list-inline-dashed">
+                                    <li class="list-inline-item"><a href="index.html">Home</a></li>
+                                    <li class="list-inline-item">About Us</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <?php
+        $htmlContent = ob_get_contents();
+        ob_end_clean();
+        return $htmlContent;
+    }
+    
+    public function getAboutWhoWeAre()
+    {
+        ob_start();
+        ?>
+        <!-- Who We Are-->
+            <section class="section-98 section-md-110">
+                <div class="container">
+                    <div class="row justify-content-sm-center">
+                        <div class="col-md-9 col-xl-6 order-xl-6"><img class="img-fluid mx-auto d-block" src="/images/about-01-570x380.jpg" width="570" height="380" alt=""></div>
+                        <div class="col-md-9 col-xl-6 col-xl-pull-6 text-left offset-top-66 offset-xl-top-0 inset-xl-right-30">
+                            <h1 class="text-center text-xl-left">Who We Are</h1>
+                            <hr class="divider bg-mantis hr-xl-left-0">
+                            <p>We are a fully private dental clinic offering high-quality teeth straightening, cosmetic, and general dental treatments. Our team of more than 20 professionals is highly trained to serve our patients’ needs.</p>
+                            <p>We use the latest technologies to offer you the best possible dental solutions, including 3D computer imaging with low-radiation X-rays and soft-tissue lasers. In addition, we offer advanced pain-free techniques to ensure your comfort.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        <?php
+        $htmlContent = ob_get_contents();
+        ob_end_clean();
+        return $htmlContent;
+    }
+    
+    public function getFooter()
+    {
+        ob_start();
+        ?>
+        <!-- Footer variant 3-->
+        <footer class="section-relative section-top-66 section-bottom-34 page-footer">
+            <div class="container">
+                <div class="row justify-content-md-center text-xl-left">
+                    <div class="col-md-12">
+                        <div class="row justify-content-sm-center">
+                            <div class="col-sm-10 col-md-3 text-left order-md-4 col-md-10 col-xl-3 offset-md-top-50 offset-xl-top-0 order-xl-2 offset-xl-top-10">
+                                <!-- Twitter Feed-->
+                                <!--
+                                <p class="text-uppercase text-spacing-60 font-weight-bold text-center text-xl-left">Twitter Feed</p>
+                                <div class="offset-top-20">
+                                    <div class="twitter" data-twitter-username="templatemonster" data-twitter-date-hours=" hours ago" data-twitter-date-minutes=" minutes ago">
+                                        <div class="twitter-sm" data-twitter-type="tweet">
+                                            <div class="twitter-date text-dark small"><span class="icon icon-xxs mdi mdi-twitter text-middle"></span> <span class="text-middle" data-date="text"></span>
+                                            </div>
+                                            <div class="twitter-text" data-tweet="text"></div>
+                                            <div class="twitter-name font-weight-bold big" data-screen_name="text"></div>
+                                        </div>
+                                        <div class="twitter-sm" data-twitter-type="tweet">
+                                            <div class="twitter-date text-dark small"><span class="icon icon-xxs mdi mdi-twitter text-middle"></span> <span class="text-middle" data-date="text"></span>
+                                            </div>
+                                            <div class="twitter-text" data-tweet="text"></div>
+                                            <div class="twitter-name font-weight-bold big" data-screen_name="text"></div>
+                                        </div>
+                                    </div>
+                                </div>-->
+                            </div>
+                            <div class="col-sm-10 col-md-3 offset-top-66 order-md-3 col-md-10 offset-xl-top-0 col-md-6 col-xl-2 order-xl-4 offset-xl-top-10">
+                                <h6 class="text-uppercase text-spacing-60 text-center text-xl-left">Flickr</h6>
+                
+                            </div>
+                            <div class="col-sm-10 col-md-3 offset-top-66 order-md-2 col-md-6 col-xl-4 offset-md-top-0 order-xl-3 offset-xl-top-10">
+                                <h6 class="text-uppercase text-spacing-60 text-center text-lg-left">What people say</h6>
+                                <div class="offset-xl-top-30">
+                                    <!-- Simple quote Slider-->
+                                    <div class="owl-carousel owl-carousel-classic owl-carousel-class-light owl-carousel-simple-quote" data-items="1" data-nav="false" data-dots="true" data-margin="5">
+                                        <div>
+                                            <blockquote class="quote quote-simple-2 text-left">
+                                                <p class="text-darker quote-body offset-bottom-0">
+                                                    <q>Thank you for your extraordinary dental service! You helped me to get rid of gum disease and mouth cavity inflammation I had suffered.</q>
+                                                </p>
+                                                <h6 class="quote-author text-uppercase text-dark">
+                                                    <cite class="font-default text-normal">- John Doe</cite>
+                                                </h6>
+                                            </blockquote>
+                                        </div>
+                                        <div>
+                                            <blockquote class="quote quote-simple-2 text-left">
+                                                <p class="text-darker quote-body offset-bottom-0">
+                                                    <q>I am glad I’ve purchased a template from TemplateMonster. Extraordinary customer service, always available.</q>
+                                                </p>
+                                                <h6 class="quote-author text-uppercase text-dark">
+                                                    <cite class="font-default text-normal">- July Mao</cite>
+                                                </h6>
+                                            </blockquote>
+                                        </div>
+                                    </div>
+                                    <div class="offset-top-20 text-sm-center text-lg-left">
+                                        <ul class="list-inline">
+                                            <li class="list-inline-item">
+                                                <a class="icon fa fa-facebook icon-xxs icon-circle icon-darkest-filled" href="index.html#"></a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a class="icon fa fa-twitter icon-xxs icon-circle icon-darkest-filled" href="index.html#"></a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a class="icon fa fa-google-plus icon-xxs icon-circle icon-darkest-filled" href="index.html#"></a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a class="icon fa fa-linkedin icon-xxs icon-circle icon-darkest-filled" href="index.html#"></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-10 col-md-3 offset-top-66 order-md-1 offset-md-top-0 col-md-6 col-xl-3 order-xl-1">
+                                <!-- Footer brand-->
+                                <div class="footer-brand">
+                                    <a href="index.html"><img width='138' height='52' src='images/logo.png' alt='' /></a>
+                                </div>
+                                <address class="contact-info offset-top-20 p">
+                    <div>
+                      <dl>
+                        <dt class="font-weight-bold">Address:</dt>
+                        <dd class="text-dark d-xl-block">4578 Marmora St, <span class="d-xl-block">San Francisco</span> <span class="d-xl-block">D04 89GR.</span></dd>
+                      </dl>
+                    </div>
+                    <div>
+                      <dl class="offset-top-0">
+                        <dt class="font-weight-bold">Telephone:</dt>
+                        <dd><a class="text-dark" href="tel:#">1-800-1234-567</a></dd>
+                      </dl>
+                    </div>
+                    <div>
+                      <dl class="offset-top-0">
+                        <dt class="font-weight-bold">E-mail:</dt>
+                        <dd><a class="text-dark" href="mailto:#">mail@demolink.org</a></dd>
+                      </dl>
+                    </div>
+                  </address>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container offset-top-50">
+                <p>Intense Dental Clinic &copy; <span id="copyright-year"></span> . <a class="text-darker" href="index.html#">Privacy Policy</a>
+                    <!-- {%FOOTER_LINK}-->
+                </p>
+            </div>
+        </footer>
         <?php
         $htmlContent = ob_get_contents();
         ob_end_clean();

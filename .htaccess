@@ -1,0 +1,24 @@
+RewriteEngine On
+
+# Error Pages
+ErrorDocument 401 /not-found.html
+ErrorDocument 403 /not-found.html
+ErrorDocument 404 /not-found.html
+ErrorDocument 500 /not-found.html
+
+# Prevent directory browsing
+Options -Indexes +FollowSymLinks -MultiViews
+
+# Canonical host
+RewriteCond %{HTTP_HOST}    ^www\.(.*)      [NC]
+RewriteRule ^(.*)$          http://%1/$1    [L,R,NE]
+
+#Needed
+RewriteRule ^sitemap.xml$ sitemap.xml
+
+
+RewriteBase /
+
+#RewriteRule ^(.*)\.html $1.php
+RewriteRule ^about-us/$ 		/about-us.php?section=about
+RewriteRule ^contact-us/$ 		/contact-us.php?section=contact
