@@ -21,4 +21,6 @@ RewriteBase /
 
 #RewriteRule ^(.*)\.html $1.php
 RewriteRule ^about-us/$ 		/about-us.php?section=about
-RewriteRule ^contact-us/$ 		/contact-us.php?section=contact
+RewriteRule ^contact-us/$ 		/contact.php?section=contact
+RewriteRule ^our-services/$ 	/our-services.php?section=our
+RewriteRule ^blog/$ 	       /blog.php?section=blog

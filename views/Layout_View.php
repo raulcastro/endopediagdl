@@ -43,7 +43,7 @@ class Layout_View
             </head>
             <body>
                 <div class="page text-center">
-                    <?php echo self::getPage(); ?>
+                    <?php //echo self::getPage(); ?>
                     <!-- Page Head-->
                     <header class="page-head">
                         <?php echo self::getMainMenu(); ?>
@@ -70,10 +70,31 @@ class Layout_View
                             case "about-us":
                                 echo self::getAboutCrumbs();
                                 echo self::getAboutWhoWeAre();
+                                echo self::getMedicalTeam();
+                                echo self::getOurMision();
+                                echo self::getContactUs();
                             break;
+                                
+                            case "contact-us":
+                                echo self::getContact();
+                                echo self::getForm();
+                                echo self::getMap();
+                            break;
+                                
+                            case "our-services":
+                                echo self::getServicesHome();
+                                echo self::getServicesTx();
+                            break;
+                                
+                            case "blog":
+                                echo self::getBlogHead();
+                                echo self::getBlogConten();
+                            break;
+                                
                                 
                             default:
                             break;
+                                
                         }
                         ?>
                     </main>
@@ -191,7 +212,7 @@ class Layout_View
                                         </li>
                                         <li><a href="/about-us/"><span>About</span></a>
                                         </li>
-                                        <li><a href="services.html"><span>Services</span></a>
+                                        <li><a href="/our-services/"><span>Services</span></a>
                                             <ul class="rd-navbar-dropdown">
                                                 <li><a href="single-service.html"><span class="text-middle">General and Preventative Care</span></a>
                                                 </li>
@@ -211,15 +232,15 @@ class Layout_View
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li><a href="schedule.html"><span>Schedule</span></a>
+                                        <li><a href="/blog/"><span>Schedule</span></a>
                                         </li>
-                                        <li><a href="blog.html"><span>News</span></a>
+                                        <li><a href="/blog/"><span>News</span></a>
                                             <ul class="rd-navbar-dropdown">
                                                 <li><a href="blog-single-post.html"><span class="text-middle">Single Blog Post</span></a>
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li><a href="contacts.html"><span>Contacts</span></a>
+                                        <li><a href="/contact-us/"><span>Contacts</span></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -640,6 +661,7 @@ class Layout_View
                         </div>
                     </div>
                 </div>
+                <div class="text-subline"></div>
             </section>
         <?php
         $htmlContent = ob_get_contents();
@@ -798,6 +820,654 @@ class Layout_View
         ob_end_clean();
         return $htmlContent;
     }
+    
+    public function getMedicalTeam()
+         {
+        ob_start();
+        ?>
+        <section class="section-98 section-md-110 bg-polar">
+                <div class="container">
+                    <h1>Medical Team</h1>
+                    <hr class="divider bg-mantis">
+                    <div class="row justify-content-sm-center text-xl-left">
+                        <div class="col-md-5 col-xl-3"><img src="/images/user-mark-hoffman-269x270.jpg" width="269" height="270" alt="">
+                            <div class="offset-top-24">
+                                <h5 class="text-info"><a href="team-member.html">Dr. Mark Hoffman</a></h5>
+                            </div>
+                            <div class="offset-top-4">
+                                <p class="text-dark">Dentist</p>
+                            </div>
+                            <div class="offset-top-20">
+                                <p>Our clinic's Chief Medical, Dr. Mark Hoffman has been working in this field of medical specialization since 2002. He has been obtaining his chief position at our clinic since 2010.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-xl-3 offset-top-41 offset-md-top-0"><img src="/images/user-leslie-gross-270x270.jpg" width="270" height="270" alt="">
+                            <div class="offset-top-24">
+                                <h5 class="text-info"><a href="team-member.html">Leslie Peterson</a></h5>
+                            </div>
+                            <div class="offset-top-4">
+                                <p class="text-dark">Dental Hygienist</p>
+                            </div>
+                            <div class="offset-top-20">
+                                <p>Ms. Peterson is an experienced specialist with many years of expertise in dental hygiene. Her work is concentrated on helping Dr. Hoffman with the treatment of their clients.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-xl-3 offset-top-41 offset-xl-top-0"><img src="/images/user-dana-sims-270x270.jpg" width="270" height="270" alt="">
+                            <div class="offset-top-24">
+                                <h5 class="text-info"><a href="team-member.html">Dana Sims</a></h5>
+                            </div>
+                            <div class="offset-top-4">
+                                <p class="text-dark">Practice Nurse</p>
+                            </div>
+                            <div class="offset-top-20">
+                                <p>As our Practice Nurse, Dana works within the community, planning and providing nursing care, treatment, and health education for clients of all ages.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-xl-3 offset-top-41 offset-xl-top-0"><img src="/images/user-kimberly-barker-270x270.jpg" width="270" height="270" alt="">
+                            <div class="offset-top-24">
+                                <h5 class="text-info"><a href="team-member.html">Kimberly Barker</a></h5>
+                            </div>
+                            <div class="offset-top-4">
+                                <p class="text-dark">Patient Services Manager</p>
+                            </div>
+                            <div class="offset-top-20">
+                                <p>Kimberly coordinates, plans, and manages patient service activities complying with the standards of our dental clinic, while introducing new trends of patient care.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        <?php
+        $htmlContent = ob_get_contents();
+        ob_end_clean();
+        return $htmlContent;
+    }
+    
+    public function getOurMision()
+        {
+        ob_start();
+        ?>
+        <section class="section-98 section-md-110">
+                <div class="container">
+                    <h1>Why choose Intense?</h1>
+                    <hr class="divider bg-mantis">
+                    <div class="row justify-content-center grid-group-md text-lg-left offset-top-50 offset-xl-top-66">
+                        <div class="col-md-9 col-lg-4">
+                            <!-- Icon Box Type 3-->
+                            <div class="unit align-items-center unit-spacing-xs unit-xs flex-sm-row text-center text-sm-left">
+                                <div class="unit-left"><span class="icon text-middle icon-xs text-info mdi mdi-eye"></span></div>
+                                <div class="unit-body">
+                                    <h4 class="text-spacing-60 text-uppercase font-weight-bold">Our vision</h4>
+                                </div>
+                            </div>
+                            <p class="offset-top-10 text-center text-sm-left">We see modern dentistry in creating and developing a community where everyone has access to dental care services.</p>
+                        </div>
+                        <div class="col-md-9 col-lg-4">
+                            <!-- Icon Box Type 3-->
+                            <div class="unit align-items-center unit-spacing-xs unit-xs flex-sm-row text-center text-sm-left">
+                                <div class="unit-left"><span class="icon text-middle icon-xs text-info mdi mdi-star"></span></div>
+                                <div class="unit-body">
+                                    <h4 class="text-spacing-60 text-uppercase font-weight-bold">Our mission </h4>
+                                </div>
+                            </div>
+                            <p class="offset-top-10 text-center text-sm-left">To improve the overall health of local residents and guests of the area by providing free preventative dental care.</p>
+                        </div>
+                        <div class="col-md-9 col-lg-4">
+                            <!-- Icon Box Type 3-->
+                            <div class="unit align-items-center unit-spacing-xs unit-xs flex-sm-row text-center text-sm-left">
+                                <div class="unit-left"><span class="icon text-middle icon-xs text-info mdi mdi-hospital"></span></div>
+                                <div class="unit-body">
+                                    <h4 class="text-spacing-60 text-uppercase font-weight-bold">Our approach</h4>
+                                </div>
+                            </div>
+                            <p class="offset-top-10 text-center text-sm-left">The approach of Intense dental clinic is based on a reasonable treatment plan created together by the dentist and patient.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        <?php
+        $htmlContent = ob_get_contents();
+        ob_end_clean();
+        return $htmlContent;
+    }
+    
+    public function getContactUs()
+        {
+        ob_start();
+        ?>
+        <section class="context-dark">
+                <div class="section parallax-container" data-parallax-img="images/background-02-1920x955.jpg">
+                    <div class="parallax-content">
+                        <div class="bg-overlay-info">
+                            <div class="container section-98 section-md-110">
+                                <h1>Contact Us</h1>
+                                <hr class="divider bg-white">
+                                <div class="row justify-content-md-center">
+                                    <div class="col-md-9 col-lg-8">
+                                        <!-- RD Mailform-->
+                                        <form class="rd-mailform text-left" data-form-output="form-output-global" data-form-type="contact" method="post" action="https://livedemo00.template-help.com/wt_58880_v1/bat/rd-mailform.php">
+                                            <div class="row">
+                                                <div class="col-xl-6">
+                                                    <div class="form-group">
+                                                        <label class="form-label form-label-outside" for="about-me-first-name">First Name</label>
+                                                        <input class="form-control" id="about-me-first-name" type="text" name="first name" data-constraints="@Required">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 offset-top-20 offset-xl-top-0">
+                                                    <div class="form-group">
+                                                        <label class="form-label form-label-outside" for="about-me-last-name">Last Name</label>
+                                                        <input class="form-control" id="about-me-last-name" type="text" name="last name" data-constraints="@Required">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-12 offset-top-20">
+                                                    <div class="form-group">
+                                                        <label class="form-label form-label-outside" for="about-me-email">E-Mail</label>
+                                                        <input class="form-control" id="about-me-email" type="email" name="email" data-constraints="@Required @Email">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-12 offset-top-20">
+                                                    <div class="form-group">
+                                                        <label class="form-label form-label-outside" for="about-me-message">Message</label>
+                                                        <textarea class="form-control" id="about-me-message" name="message" data-constraints="@Required" style="height: 150px;"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row justify-content-sm-center offset-top-30 text-center">
+                                                <div class="col-sm-8 col-lg-6 col-xl-4">
+                                                    <div class="inset-left-20 inset-right-20">
+                                                        <button class="btn btn-block btn-primary" type="submit">Send</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        <?php
+        $htmlContent = ob_get_contents();
+        ob_end_clean();
+        return $htmlContent;
+    }
+    
+    public function getContact()
+        {
+        ob_start();
+        ?>
+        <section class="context-dark">
+          <div class="section parallax-container" data-parallax-img="images/background-03-1920x640.jpg">
+            <div class="parallax-content">
+              <div class="bg-overlay-info">
+                <div class="container section-34 section-md-85 text-lg-left">
+                  <div class="d-none d-md-block d-lg-inline-block">
+                    <h1>Contacts</h1>
+                  </div>
+                  <div class="pull-md-right offset-md-top-10 offset-lg-top-20">
+                    <ul class="p list-inline list-inline-dashed">
+                      <li class="list-inline-item"><a href="index.html">Home</a></li>
+                      <li class="list-inline-item">Contacts</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <?php
+        $htmlContent = ob_get_contents();
+        ob_end_clean();
+        return $htmlContent;
+    }
+    
+    public function getForm()
+        {
+        ob_start();
+        ?>
+        <section class="section-top-98 section-md-top-110">
+          <div class="container">
+            <div class="row justify-content-sm-center">
+              <div class="col-md-9 col-lg-8 col-xl-12">
+                <div class="row">
+                  <div class="col-xl-8 text-left">
+                    <h1>Get In Touch</h1>
+                    <form class="rd-mailform text-left offset-top-50" data-form-output="form-output-global" data-form-type="contact" method="post" action="https://livedemo00.template-help.com/wt_58880_v1/bat/rd-mailform.php">
+                      <div class="row">
+                        <div class="col-xl-6">
+                          <div class="form-group">
+                            <label class="form-label form-label-outside" for="contacts-first-name">First Name</label>
+                            <input class="form-control" id="contacts-first-name" type="text" name="first name" data-constraints="@Required">
+                          </div>
+                        </div>
+                        <div class="col-xl-6 offset-top-20 offset-xl-top-0">
+                          <div class="form-group">
+                            <label class="form-label form-label-outside" for="contacts-second-name">Second Name</label>
+                            <input class="form-control" id="contacts-second-name" type="text" name="last name" data-constraints="@Required">
+                          </div>
+                        </div>
+                        <div class="col-xl-6 offset-top-20">
+                          <div class="form-group">
+                            <label class="form-label form-label-outside" for="contacts-email">E-mail</label>
+                            <input class="form-control" id="contacts-email" type="email" name="email" data-constraints="@Required @Email">
+                          </div>
+                        </div>
+                        <div class="col-xl-6 offset-top-20">
+                          <div class="form-group">
+                            <label class="form-label form-label-outside" for="contacts-phone">Phone</label>
+                            <input class="form-control" id="contacts-phone" type="text" name="phone" data-constraints="@Required">
+                          </div>
+                        </div>
+                        <div class="col-xl-12 offset-top-20">
+                          <div class="form-group">
+                            <label class="form-label form-label-outside" for="contact-me-message">Message</label>
+                            <textarea class="form-control" id="contact-me-message" name="message" data-constraints="@Required" style="height: 160px;"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row justify-content-sm-center justify-content-xl-start offset-top-30">
+                        <div class="col-sm-5 col-md-4">
+                          <div class="inset-left-50 inset-right-50 inset-sm-left-0 inset-sm-right-0 inset-xl-right-50">
+                            <button class="btn btn-block btn-primary" type="submit">Send</button>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="col-xl-4 text-left offset-top-66 offset-xl-top-0 inset-xl-left-80">
+                    <div>
+                      <h5>Phone</h5>
+                    </div>
+                    <div class="offset-top-14 text-subline offset-top-10"></div>
+                    <div class="offset-top-20"><span class="icon icon-xxs mdi mdi-cellphone-android text-middle text-info inset-right-10"></span><a class="text-middle p" href="tel:#">1-800-1234-567</a></div>
+                    <div class="offset-top-66">
+                      <h5>Address</h5>
+                    </div>
+                    <div class="offset-top-14 text-subline offset-top-10"></div>
+                    <div class="unit flex-row unit-spacing-xxs offset-top-20">
+                      <div class="unit-left"><span class="icon icon-xxs mdi mdi-map-marker text-middle text-info inset-right-10"></span></div>
+                      <div class="unit-body"><a class="text-middle p" href="contacts.html#">4578 Marmora St, San Francisco D04 89GR</a></div>
+                    </div>
+                    <div class="offset-top-66">
+                      <h5>Open hours</h5>
+                    </div>
+                    <div class="offset-top-14 text-subline offset-top-10"></div>
+                    <div class="unit flex-row unit-spacing-xxs offset-top-20">
+                      <div class="unit-left"><span class="icon icon-xxs mdi mdi-clock text-middle text-info inset-right-10"></span></div>
+                      <div class="unit-body">
+                        <div>
+                          <p>Monday–Friday: 9:00am–6:00pm</p>
+                        </div>
+                        <div>
+                          <p>Saturday: 10:00am–4:00pm</p>
+                        </div>
+                        <div>
+                          <p>Sunday: 10:00am–1:00pm</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-center offset-top-66 inset-xl-right-50"><a class="btn d-xl-block btn-primary" href="schedule.html">BOOK AN APPOINTMENT</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <?php
+        $htmlContent = ob_get_contents();
+        ob_end_clean();
+        return $htmlContent;
+    }
+
+        public function getMap()
+    {
+        ob_start();
+        ?>
+            
+          <div class="offset-top-124">
+            <div class="google-map-container" data-center="9870 St Vincent Place, Glasgow, DC 45 Fr 45." data-styles="[{&quot;featureType&quot;:&quot;road&quot;,&quot;elementType&quot;:&quot;geometry&quot;,&quot;stylers&quot;:[{&quot;lightness&quot;:100},{&quot;visibility&quot;:&quot;simplified&quot;}]},{&quot;featureType&quot;:&quot;water&quot;,&quot;elementType&quot;:&quot;geometry&quot;,&quot;stylers&quot;:[{&quot;visibility&quot;:&quot;on&quot;},{&quot;color&quot;:&quot;#C6E2FF&quot;}]},{&quot;featureType&quot;:&quot;poi&quot;,&quot;elementType&quot;:&quot;geometry.fill&quot;,&quot;stylers&quot;:[{&quot;color&quot;:&quot;#C5E3BF&quot;}]},{&quot;featureType&quot;:&quot;road&quot;,&quot;elementType&quot;:&quot;geometry.fill&quot;,&quot;stylers&quot;:[{&quot;color&quot;:&quot;#D1D1B8&quot;}]}]">
+              <div class="google-map"></div>
+              <ul class="google-map-markers">
+                <li data-location="9870 St Vincent Place, Glasgow, DC 45 Fr 45." data-description="9870 St Vincent Place, Glasgow" data-icon="images/gmap_marker.png" data-icon-active="images/gmap_marker_active.png"></li>
+              </ul>
+            </div>
+          </div>
+        
+        <?php
+        $htmlContent = ob_get_contents();
+        ob_end_clean();
+        return $htmlContent;
+    }
+    
+     public function getServicesHome()
+    {
+        ob_start();
+        ?>
+        <section class="context-dark">
+          <div class="section parallax-container" data-parallax-img="images/background-03-1920x640.jpg">
+            <div class="parallax-content">
+              <div class="bg-overlay-info">
+                <div class="container section-34 section-md-85 text-lg-left">
+                  <div class="d-none d-md-block d-lg-inline-block">
+                    <h1>Services</h1>
+                  </div>
+                  <div class="pull-md-right offset-md-top-10 offset-lg-top-20">
+                    <ul class="p list-inline list-inline-dashed">
+                      <li class="list-inline-item"><a href="index.html">Home</a></li>
+                      <li class="list-inline-item">Services</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <?php
+        $htmlContent = ob_get_contents();
+        ob_end_clean();
+        return $htmlContent;
+    }
+    
+    public function getServicesTx()
+    {
+        ob_start();
+        ?>
+        <section class="section-98 section-md-top-110 section-md-bottom-124">
+          <div class="container container-wide">
+            <h1>Our Services</h1>
+            <hr class="divider bg-mantis">
+            <p class="offset-top-50">We’re pleased to offer a wide range of dental services</p>
+            <div class="row justify-content-sm-center offset-top-66 text-md-left">
+              <div class="col-sm-10 col-md-6 col-xl-5 col-xxl-3"><a class="thumbnail-classic" href="single-service.html" target="_self">
+                  <figure><img width="420" height="310" src="/images/service-01-420x310.jpg" alt=""/>
+                  </figure></a>
+                <div class="offset-top-24">
+                  <h5 class="text-info"><a href="single-service.html">General and Preventive Care</a></h5>
+                </div>
+                <ul class="list-marked inset-xl-left-20 offset-top-10 text-dark">
+                  <li>Sealants</li>
+                  <li>Root Canal Therapy</li>
+                  <li>Extractions</li>
+                  <li>Scaling and Root Planing</li>
+                </ul>
+              </div>
+              <div class="col-sm-10 col-md-6 col-xl-5 col-xxl-3 offset-top-50 offset-md-top-0"><a class="thumbnail-classic" href="single-service.html" target="_self">
+                  <figure><img width="420" height="310" src="/images/service-02-420x310.jpg" alt=""/>
+                  </figure></a>
+                <div class="offset-top-24">
+                  <h5 class="text-info"><a href="single-service.html">Cosmetic Dentistry</a></h5>
+                </div>
+                <ul class="list-marked inset-xl-left-20 offset-top-10 text-dark">
+                  <li>Cosmetic Contouring</li>
+                  <li>Whitening</li>
+                  <li>Laser dentistry</li>
+                </ul>
+              </div>
+              <div class="col-sm-10 col-md-6 col-xl-5 col-xxl-3 offset-top-50 offset-xxl-top-0"><a class="thumbnail-classic" href="single-service.html" target="_self">
+                  <figure><img width="420" height="310" src="/images/service-03-420x310.jpg" alt=""/>
+                  </figure></a>
+                <div class="offset-top-24">
+                  <h5 class="text-info"><a href="single-service.html">Restorative Dentistry</a></h5>
+                </div>
+                <ul class="list-marked inset-xl-left-20 offset-top-10 text-dark">
+                  <li>Root Canals</li>
+                  <li>Tooth Whitening</li>
+                  <li>Invisalign</li>
+                </ul>
+              </div>
+              <div class="col-sm-10 col-md-6 col-xl-5 col-xxl-3 offset-top-50 offset-xxl-top-0"><a class="thumbnail-classic" href="single-service.html" target="_self">
+                  <figure><img width="420" height="310" src="/images/service-04-420x310.jpg" alt=""/>
+                  </figure></a>
+                <div class="offset-top-24">
+                  <h5 class="text-info"><a href="single-service.html">Additional Treatments</a></h5>
+                </div>
+                <ul class="list-marked inset-xl-left-20 offset-top-10 text-dark">
+                  <li>Laser dentistry</li>
+                  <li>Digital Imaging (X-rays)</li>
+                </ul>
+              </div>
+              <!-- next range-->
+              <div class="row-spacer d-none d-xxl-inline-block offset-top-66"></div>
+              <div class="col-sm-10 col-md-6 col-xl-5 col-xxl-3 offset-top-50 offset-xxl-top-0"><a class="thumbnail-classic" href="single-service.html" target="_self">
+                  <figure><img width="420" height="310" src="/images/service-05-420x310.jpg" alt=""/>
+                  </figure></a>
+                <div class="offset-top-24">
+                  <h5 class="text-info"><a href="single-service.html">Orthodontics</a></h5>
+                </div>
+                <ul class="list-marked inset-xl-left-20 offset-top-10 text-dark">
+                  <li>Digital Imaging (X-rays)</li>
+                  <li>Diagnodent</li>
+                </ul>
+              </div>
+              <div class="col-sm-10 col-md-6 col-xl-5 col-xxl-3 offset-top-50 offset-xxl-top-0"><a class="thumbnail-classic" href="single-service.html" target="_self">
+                  <figure><img width="420" height="310" src="/images/service-06-420x310.jpg" alt=""/>
+                  </figure></a>
+                <div class="offset-top-24">
+                  <h5 class="text-info"><a href="single-service.html">Pediatric Dentistry</a></h5>
+                </div>
+                <ul class="list-marked inset-xl-left-20 offset-top-10 text-dark">
+                  <li>Children's Oral Health</li>
+                </ul>
+              </div>
+              <div class="col-sm-10 col-md-6 col-xl-5 col-xxl-3 offset-top-50 offset-xxl-top-0"><a class="thumbnail-classic" href="single-service.html" target="_self">
+                  <figure><img width="420" height="310" src="/images/service-07-420x310.jpg" alt=""/>
+                  </figure></a>
+                <div class="offset-top-24">
+                  <h5 class="text-info"><a href="single-service.html">Dentures & Denture Repair</a></h5>
+                </div>
+                <ul class="list-marked inset-xl-left-20 offset-top-10 text-dark">
+                  <li>Denture Repair</li>
+                </ul>
+              </div>
+              <div class="col-sm-10 col-md-6 col-xl-5 col-xxl-3 offset-top-50 offset-xxl-top-0"><a class="thumbnail-classic" href="single-service.html" target="_self">
+                  <figure><img width="420" height="310" src="/images/service-08-420x310.jpg" alt=""/>
+                  </figure></a>
+                <div class="offset-top-24">
+                  <h5 class="text-info"><a href="single-service.html">Diagnostics</a></h5>
+                </div>
+                <ul class="list-marked inset-xl-left-20 offset-top-10 text-dark">
+                  <li>Cleanings</li>
+                  <li>Fluoride Treatments</li>
+                  <li>Sealants</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+            <div class="text-subline"></div>
+        </section>
+        <?php
+        $htmlContent = ob_get_contents();
+        ob_end_clean();
+        return $htmlContent;
+    }
+    
+    public function getBlogHead()
+        {
+        ob_start();
+        ?>
+        <section class="context-dark">
+          <div class="section parallax-container" data-parallax-img="images/background-03-1920x640.jpg">
+            <div class="parallax-content">
+              <div class="bg-overlay-info">
+                <div class="container section-34 section-md-85 text-lg-left">
+                  <div class="d-none d-md-block d-lg-inline-block">
+                    <h1>News</h1>
+                  </div>
+                  <div class="pull-md-right offset-md-top-10 offset-lg-top-20">
+                    <ul class="p list-inline list-inline-dashed">
+                      <li class="list-inline-item"><a href="index.html">Home</a></li>
+                      <li class="list-inline-item">News</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <?php
+        $htmlContent = ob_get_contents();
+        ob_end_clean();
+        return $htmlContent;
+    }
+    
+    public function getBlogConten()
+    {
+        ob_start();
+        ?>
+        <section class="section-top-98 section-md-top-110">
+          <div class="container">
+            <div class="row justify-content-lg-center justify-content-xxl-between justify-content-xl-end">
+              <div class="col-lg-8">
+                <!-- Post Wide-->
+                <article class="post post-wide">
+                  <!-- Post Media-->
+                  <header class="post-media">
+                    <div data-lightgallery="group"><a class="thumbnail-classic" href="blog-single-post.html" target="_self">
+                        <figure><img width="770" height="430" src="images/blog-04-770x430.jpg" alt=""/>
+                        </figure></a>
+                    </div>
+                  </header>
+                  <!-- Post Content-->
+                  <section class="post-content text-left">
+                    <!-- Post Title-->
+                    <div class="post-title">
+                      <h3 class="text-info"><a href="blog-single-post.html">First Signs of Gum Disease</a></h3>
+                    </div>
+                    <!-- Post Meta-->
+                    <div class="post-meta text-dark small">
+                      <p>Post by: &nbsp;John Doe on&nbsp;
+                        <time datetime="2018-01-01">15 Feb 2018</time>&nbsp;in&nbsp;<span class="d-block d-sm-inline"></span><a href="blog.html#">Dental News</a>
+                      </p>
+                    </div>
+                    <!-- Post Body-->
+                    <div class="post-body offset-top-20">
+                      <p>If you have been told you have periodontal (gum) disease, you’re not alone. Many adults in the U.S. currently have some form of the disease that can often be dangerous.</p>
+                    </div>
+                    <!-- Posts controls-->
+                    <div class="post-controls text-right offset-top-30">
+                      <ul class="list-inline list-inline-sm">
+                        <li class="list-inline-item"><a class="btn-more" href="blog-single-post.html"><span class="text-middle font-weight-bold text-uppercase inset-right-8">read more</span><span class="text-middle icon icon-xxs mdi mdi-arrow-right"></span></a></li>
+                      </ul>
+                    </div>
+                  </section>
+                </article>
+                <div class="offset-top-66">
+                  <!-- Post Wide-->
+                  <article class="post post-wide">
+                    <!-- Post Media-->
+                    <header class="post-media">
+                      <div data-lightgallery="group"><a class="thumbnail-classic" href="blog-single-post.html" target="_self">
+                          <figure><img width="770" height="430" src="images/blog-05-770x430.jpg" alt=""/>
+                          </figure></a>
+                      </div>
+                    </header>
+                    <!-- Post Content-->
+                    <section class="post-content text-left">
+                      <!-- Post Title-->
+                      <div class="post-title">
+                        <h3 class="text-info"><a href="blog-single-post.html">Basic Dental Care</a></h3>
+                      </div>
+                      <!-- Post Meta-->
+                      <div class="post-meta text-dark small">
+                        <p>Post by: &nbsp;John Doe on&nbsp;
+                          <time datetime="2018-01-01">15 Feb 2018</time>&nbsp;in&nbsp;<span class="d-block d-sm-inline"></span><a href="blog.html#">Dental News</a>
+                        </p>
+                      </div>
+                      <!-- Post Body-->
+                      <div class="post-body offset-top-20">
+                        <p>Today we would like to speak about basic dental care, a set of procedures which involves brushing and flossing your teeth regularly, as well as visiting your local dentist regularly.</p>
+                      </div>
+                      <!-- Posts controls-->
+                      <div class="post-controls text-right offset-top-30">
+                        <ul class="list-inline list-inline-sm">
+                          <li class="list-inline-item"><a class="btn-more" href="blog-single-post.html"><span class="text-middle font-weight-bold text-uppercase inset-right-8">read more</span><span class="text-middle icon icon-xxs mdi mdi-arrow-right"></span></a></li>
+                        </ul>
+                      </div>
+                    </section>
+                  </article>
+                </div>
+                <div class="offset-top-66">
+                  <!-- Post Wide-->
+                  <article class="post post-wide">
+                    <!-- Post Media-->
+                    <header class="post-media">
+                      <div data-lightgallery="group"><a class="thumbnail-classic" href="blog-single-post.html" target="_self">
+                          <figure><img width="770" height="430" src="images/blog-06-770x430.jpg" alt=""/>
+                          </figure></a>
+                      </div>
+                    </header>
+                    <!-- Post Content-->
+                    <section class="post-content text-left">
+                      <!-- Post Title-->
+                      <div class="post-title">
+                        <h3 class="text-info"><a href="blog-single-post.html">Dry Mouth</a></h3>
+                      </div>
+                      <!-- Post Meta-->
+                      <div class="post-meta text-dark small">
+                        <p>Post by: &nbsp;John Doe on&nbsp;
+                          <time datetime="2018-01-01">15 Feb 2018</time>&nbsp;in&nbsp;<span class="d-block d-sm-inline"></span><a href="blog.html#">Dental News</a>
+                        </p>
+                      </div>
+                      <!-- Post Body-->
+                      <div class="post-body offset-top-20">
+                        <p>Dry mouth is a syndrome of saliva lack in your mouth. It happens when a mouth gets dry and uncomfortable. Fortunately, many treatments can help against it.</p>
+                      </div>
+                      <!-- Posts controls-->
+                      <div class="post-controls text-right offset-top-30">
+                        <ul class="list-inline list-inline-sm">
+                          <li class="list-inline-item"><a class="btn-more" href="blog-single-post.html"><span class="text-middle font-weight-bold text-uppercase inset-right-8">read more</span><span class="text-middle icon icon-xxs mdi mdi-arrow-right"></span></a></li>
+                        </ul>
+                      </div>
+                    </section>
+                  </article>
+                </div>
+                <div class="offset-top-66">
+                  <!-- Bootstrap Pagination-->
+                  <nav>
+                    <ul class="pagination pagination-md justify-content-center">
+                      <li class="page-item"><a class="page-link" href="blog.html#" aria-label="Previous"><span class="mdi mdi-chevron-double-left" aria-hidden="true"></span></a></li>
+                      <li class="page-item active"><a class="page-link" href="blog.html#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="blog.html#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="blog.html#">3</a></li>
+                      <li class="page-item"><a class="page-link" href="blog.html#">4</a></li>
+                      <li class="page-item"><a class="page-link" href="blog.html#" aria-label="Next"><span class="mdi mdi-chevron-double-right" aria-hidden="true"></span></a></li>
+                    </ul>
+                    <div class="text-subline"></div>
+                  </nav>
+                </div>
+              </div>
+              <div class="col-lg-4 offset-top-66 offset-lg-top-0 inset-xl-left-80">
+                <!-- Section Blog Aside-->
+                <aside class="text-left">
+                  <!-- Search Form-->
+                  <div class="offset-top-34">
+                    <!-- RD Search Form-->
+                    <!--<form class="form-search rd-search" action="https://livedemo00.template-help.com/wt_58880_v1/search-results.html" method="GET">
+                      <div class="form-group">
+                        <label class="form-label form-search-label form-label-sm" for="blog-sidebar-2-form-search-widget">Search</label>
+                        <input class="form-search-input input-sm form-control input-sm" id="blog-sidebar-2-form-search-widget" type="text" name="s" autocomplete="off"/>
+                      </div>
+                      <button class="form-search-submit" type="submit"><span class="mdi mdi-magnify"></span></button>
+                    </form>-->
+                  </div>
+                  <!-- Tags-->
+                  <!--<div class="text-subline"></div>-->
+                </aside>
+              </div>
+            </div>
+          </div>
+        </section>
+         <?php
+        $htmlContent = ob_get_contents();
+        ob_end_clean();
+        return $htmlContent;
+    }
+    
+    
+   
     
     public function getFooter()
     {
